@@ -1,0 +1,246 @@
+<html style="scroll-behavior: smooth;">
+<script type="text/javascript" src="script.js"></script>
+<head>  
+<style>
+        #cpybtn{
+	background-color: #1c1c1c;
+	color:#ff8400;
+	font-size: 2vh;
+	border-radius: 5px;
+    margin-bottom:0.5vh;
+	box-shadow: 10px,1px,1px,1px;
+	float: center;
+}
+#clearbtn{
+	background-color: #1c1c1c;
+	color:#ffffff;
+	font-size: 2vh;
+	border-radius: 5px;
+    margin-bottom:0.5vh;
+	box-shadow: 10px,1px,1px,1px;
+	float: center;
+}
+
+    </style>
+<!–– fonts scripts,links ––>
+<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+
+</head>
+
+<body onload="randomall(),clearfunc()" style="background-image:linear-gradient(to bottom right,#ff8400,#d10054);">
+<div id="navbar" style="text-shadow:2px 2px 6px #d10054;margin: 2vh;color: #2c2c2c;width: 100%;font-weight: 900;height:4vh;width:100%;font-size: 4vh;font-family: 'Leckerli One', cursive;"> 
+	<p id="Home" style="display: inline;margin: 1vw;"> Visualizeui.com </p>
+    <p id="About" style="display: inline;margin: 1vw;"> About </p>
+    <p id="Privacy"style="display: inline;margin: 1vw;"> Privacy </p>
+    <p id="Terms" style="display: inline;margin: 1vw;"> Terms </p>
+</div>
+<img src="welcomewall.svg" style="margin: 5vh;float:center;width: 90vw;height: 90vh;display: block;">
+
+<br>
+<div id="liveeditor" style="margin:1vh;width:100%;height:100%">
+	<div id="txtadiv" style="display: block;">
+        <p style="font-size: 4vh;font-family: 'Leckerli One', cursive;font-weight: 800;color:#1c1c1c;text-shadow: 2px 2px 6px grey;"> Write Your HTML+CSS/Javascript Code Here :</p>
+    <div>
+            <input id="cpybtn" style="font-family: 'Montserrat', sans-serif;" type="button" value="Copy" onclick="copyfunc()">
+            <input id="clearbtn" style="font-family: 'Montserrat', sans-serif;" type="button" value="Clear" onclick="clearfunc()">
+    </div>
+        <textarea  
+        style="float:left; opacity: 0.92;border-radius: 10px;width:45vw;height:85vh;resize: none;font-family:'Fira Code', monospace;font-size:2vh; background-image:linear-gradient(to bottom right,#1C1C1C,#1C1C1C); color: white;padding: 1vh;"
+        id="txta" value="" onkeyup="gen()" onmouseup="gen()" rows=50 cols=50>
+        </textarea>
+    </div>
+        <div id="opdiv">
+            <iframe id="op" style="float:right;width:50vw;height:80vh;border:none;border-radius: 10px"></iframe>
+        </div>
+</div>
+
+
+<br>
+<div id="gradientgenerator" style="width:100%;height:60%">
+    
+	<div style="margin: 1vh;float: left;display: block;background-color:#1C1C1C;width:95vw;height: 60vh;opacity: 0.95;border-radius: 2vh;padding: 1vw;color:white;font-family: 'Montserrat', sans-serif;">
+<p style="font-size: 4vh;margin:2vh;font-family: 'Leckerli One', cursive;font-weight: 800;text-shadow: 2px 2px 6px grey;"> Gradient Generator</p>
+    
+        <canvas id="myDiv" style="display: block;border-radius:5px;width: 100%;height: 30vh;background-image: linear-gradient(to right, teal , green);">This is a div element.</canvas>
+        <center>
+        <input type="text" style="height:5vh;width: 50vh;font-family: 'Montserrat', sans-serif;margin-top: 2vh;font-size: 2vh;font-weight: 600;border-radius: 0.5vh;" 
+        id="deg" placeholder="Degree/Direction" title="Ex.Type here 10deg or to right or to bottom right">
+        <input type="text" style="height:5vh;width: 50vh;font-family: 'Montserrat', sans-serif;margin-top: 2vh;font-size: 2vh;font-weight: 600;border-radius: 0.5vh;"  id="col1" placeholder="Color1 red,#1c1c1c" title="Ex.Type here red or red,yellow">
+        <input type="text" style="height:5vh;width: 50vh;font-family: 'Montserrat', sans-serif;margin-top: 2vh;font-size: 2vh;font-weight: 600;border-radius: 0.5vh;"  id="col2" placeholder="Color2" title="Ex.Type here red or red,yellow"><br>
+        
+        <input type="radio" id="linear" style="padding: 1vw;margin-top: 2vh;" name="gradtype" value="linear" checked="checked">Linear
+        <input type="radio" id="radial" style="padding: 1vw;margin-top: 2vh;" name="gradtype" value="radial" >Radial
+        <input type="radio" id="rlinear" style="padding: 1vw;margin-top: 2vh;" name="gradtype" value="repeating-linear-gradient">Repeating-Linear-Gradient
+        <br>
+        <button style="font-family: 'Montserrat', sans-serif;margin-top: 2vh;padding: 0.5vh;font-size: 4vh;font-weight: 800;border: none;border-radius: 2vh;background-color: #1c1c1c;color:#ff8400"
+        type="button" onclick="radfunc()">Generate Gradient</button></center>
+    </div>
+</div>
+<br>
+<div id="colorpal"style="margin: 1vh;float: left;display: block;background-color:#1C1C1C;width:95vw;height: 60vh;opacity: 0.95;border-radius: 2vh;padding: 1vw;color:white;font-family: 'Montserrat', sans-serif;">
+
+<p style="font-size: 4vh;margin:2vh;font-family: 'Leckerli One', cursive;font-weight: 800;text-shadow: 2px 2px 6px grey;"> 
+Color Pallete Generator</p>
+    
+<div style="float: left;align-content: left;margin: 5px;"><br>
+            <div id="div1" style="border-radius: 2vh;width: 15vw;height: 30vh;">
+            </div><br>
+            <input style="background-color:#1c1c1c;border-radius: 2px;" type="color" value="#d10054" id="color1" onchange="getcolor(this.id)">
+            <p id="color1para" style="font-family: 'Montserrat', sans-serif;color: white">Color1 : </p>
+            <input type="button" id="random1" title="Click Here to Generate Random Color !" onclick="randomcolor(this.id)" value="Random" style="text-align: left;border-radius: 2px;text-align: center ;background-color: #d10054;border-width:0px;color: #1c1c1c;font-family: 'Montserrat', sans-serif;font-style: normal;background-image:linear-gradient(to bottom right,#ff8400,#d10054);">
+        
+    </div>
+<br>
+    <div style="float: left;align-content: left;margin: 5px" >
+            <div id="div2" style="border-radius: 2vh;width: 15vw;height: 30vh;">
+                       
+            </div><br>
+            <input type="color"  value="#d10054" style="background-color:#1c1c1c;border-radius: 2px;" id="color2" onchange="getcolor(this.id)"> 
+            <p id="color2para" style="font-family: 'Montserrat', sans-serif; color: white">Color2 : </p>
+            <input type="button" title="Click Here to Generate Random Color !" onclick="randomcolor(this.id)" id="random2" value="Random" style="border-radius: 2px;text-align: center ;border-width:0px; background-color: #d10054;color: #1c1c1c;font-family: 'Montserrat', sans-serif;background-image:linear-gradient(to bottom right,#ff8400,#d10054);">
+    </div>
+
+        <div style="float: left;align-content: left;margin: 5px">
+            <div id="div3" style="border-radius: 2vh;width: 15vw;height: 30vh;">
+                 
+            </div><br>
+            <input type="color"  value="#d10054" style="background-color:#1c1c1c;border-radius: 2px;" id="color3" onchange="getcolor(this.id)"> 
+            <p id="color3para" style="font-family: 'Montserrat', sans-serif;color: white ">Color3 : </p>
+             <input  title="Click Here to Generate Random Color !"  onclick="randomcolor(this.id)" type="button" id="random3" value="Random" style="border-radius: 2px;text-align: center ;background-color: #d10054;color: #1c1c1c;font-family: 'Montserrat', sans-serif;border-width:0px;border-color: none;background-image:linear-gradient(to bottom right,#ff8400,#d10054);">
+        </div>
+
+        <div style="float: left;align-content: left;margin: 5px">
+            <div id="div4" style="border-radius: 2vh;width: 15vw;height: 30vh;">
+                
+                  
+            </div><br>
+            <input type="color"  value="#d10054" style="background-color:#1c1c1c;border-radius: 2px;" id="color4" onchange="getcolor(this.id)"> 
+            <p id="color4para" style="font-family: 'Montserrat', sans-serif;color: white">Color4 : </p>
+        <input  title="Click Here to Generate Random Color !"  onclick="randomcolor(this.id)" type="button" id="random4" value="Random" style="border-radius: 2px;text-align: center ;background-color: #d10054;color: #1c1c1c;font-family: 'Montserrat', sans-serif;border-width:0px;border-color: none;background-image:linear-gradient(to bottom right,#ff8400,#d10054);">
+        </div>
+
+        <div style="float: left;align-content: left;margin: 5px;"> 
+            <div id="div5" style="border-radius: 2vh;width: 15vw;height: 30vh;">
+     
+            </div><br>
+            <input type="color"  value="#d10054" style="background-color:#1c1c1c;border-radius: 2px;" id="color5" onchange="getcolor(this.id)"> 
+            <p id="color5para" style="font-family: 'Montserrat', sans-serif;color: white">Color5 : </p>
+        <input   title="Click Here to Generate Random Color !" onclick="randomcolor(this.id)" type="button" id="random5" value="Random" style="border-radius: 2px;text-align: center ;background-color: #d10054;color: #1c1c1c;font-family: 'Montserrat', sans-serif;border-width:0px;border-color: none;background-image:linear-gradient(to bottom right,#ff8400,#d10054); ">
+        </div>
+
+        <div style="margin: 5px;align-items: left;"> 
+
+            <textarea id="pastebox" style="overflow:auto;align-content: left; font-size:2.5vh;font-family: 'Montserrat', sans-serif;float: center;resize: none;height: 30vh;width:15vw;color: white;background-color: #1c1c1c;border-radius: 10px;border-color: #d10054;border-width:2px;text-align: left;"  
+             ></textarea>
+            <p style="font-family: 'Montserrat', sans-serif;text-align: left;color: white"> Selections</p>
+
+            <input type="button" value="Copy Colors" id="copycolorbtn" onclick="copycolor()" style="font-family: 'Montserrat', sans-serif;
+            background-image:linear-gradient(to bottom right,#d10054,#ff8400);border: solid;border:none;">
+
+            <input type="button" value="Clear" id="clrbtn" onclick="cleartext()" style="font-family: 'Montserrat', sans-serif;color:#d10054;background-color:#1C1C1C;border: solid;border:none;"><br><br>
+           
+
+            <input type="button" value="Random All" id="randomallbtn" onclick="randomall()" style="font-family: 'Montserrat', sans-serif;color:#ff8400;background-color:#1c1c1c;border: solid;border:none;text-align: left;">			
+        </div>
+</div>
+<br>
+<div style="margin: 1vh;float: left;display: block;background-color:#1C1C1C;width:95vw;height: auto;opacity: 0.95;border-radius: 2vh;padding: 1vw;color:white;font-family: 'Montserrat', sans-serif;">
+<p style="font-size: 4vh;margin:2vh;font-family: 'Leckerli One', cursive;font-weight: 800;text-shadow: 2px 2px 6px grey;"> Visualize </p>
+  
+    
+    <div  style="display: block;padding: 1vh;float:left;border-radius: 10px;opacity: 0.95;color:white;">
+        <div id="appwindow" style="margin: 1vh;font-size: 2vh;height:30vh;background-color: black;border-radius: 10px;color:white;padding: 1vw;">
+        
+            <img src="minmaxclose.png" style="width: 5vw;height: 2vh;float:right;">
+            <h  id="appHeading" >Heading</h>
+            <p  id="appPara" >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum error explicabo, consectetur veritatis odio officia laboriosam saepe amet, quis accusamus repellat eum sequi. Labore, beatae earum. Accusantium et, id nesciunt!
+            Dicta nisi accusantium officia nam, nihil. Eligendi nam eos sapiente nisi similique aut omnis cupiditate. Officia ab illum, amet vitae architecto debitis.
+            rerum magni eius culpa necessitatibus, aliquam ducimus.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id eum saepe voluptate, veniam aspernatur soluta laborum explicabo reiciendis enim inventore.
+            </p>
+            <input type="button" id="appBtn" value="Button1" >
+        </div>
+    </div>
+<br>
+
+<div id="visualize" style="float:fixed;">
+
+		<p>Heading Properties :</p>
+		<input id="appHeadingfontscript" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" placeholder="Heading Font Script :">
+		<input  id="appHeadingfontstyle" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" onkeyup="appHeadingsetter()" onfocus="appHeadingsetter()"placeholder="Heading Font Style:"></input>
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appHeadinginputfcolor" value="#ffffff" onchange="appHeadingfcolor()" title="Heading Foreground Color">
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appHeadinginputbcolor" value="#ffffff" onchange="appHeadingbcolor()" title="Heading Background Color">
+		<input placeholder="Heading Font Size" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 10vw;height:5vh;" type="text" value="" id="appHeadingfontsize" onkeyup="appHeadingfontsizesetter()">
+
+		<p>Paragraph Properties :</p>
+		<input id="appParafontscript" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" placeholder="Paragraph Font Script :">
+		<input  id="appParafontstyle" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" onkeyup="appParasetter()" onfocus="appParasetter()" placeholder="Paragraph  Font Style:"></input>
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appParainputfcolor" value="#ffffff" onchange="appParafcolor()" title="Paragraph Foreground Color">
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appParainputbcolor" value="#ffffff" onchange="appParabcolor()" title="Paragraph Background Color">
+		<input placeholder="Paragraph Font Size" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 10vw;height:5vh;" type="text" value="" id="appParafontsize" onkeyup="appParafontsizesetter()">
+
+		<p>Button Properties :</p>
+		<input id="appBtnfontscript" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" placeholder="Button Font Script :">
+		<input  id="appBtnfontstyle" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" onkeyup="appBtnsetter()" onfocus="appBtnsetter()" placeholder="Button  Font Style:"></input>
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appBtninputfcolor" value="#ffffff" onchange="appBtnfcolor()" title="Button Foreground Color">
+		<input type="color" style="height:4vh;width:4vh;background-color:#1c1c1c" id="appBtninputbcolor" value="#ffffff" onchange="appBtnbcolor()" title="Button Background Color">
+		<input placeholder="Button Font Size" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 10vw;height:5vh;" type="text" value="" id="appBtnfontsize" onkeyup="appBtnfontsizesetter()">
+
+		<p>Window Properties :</p>
+		<input id="appwindowfontscript" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" placeholder="Window Font Script">
+		<input  id="appwindowfontstyle" style="font-family: 'Montserrat', sans-serif;border-radius:0.5vh;font-weight:600;width: 30vw;height:5vh;" onfocus="appwindowsetter()" onkeyup="appwindowsetter()" placeholder="Window  Font Style"></input>
+		<input type="color" style="font-family: 'Montserrat', sans-serif;height:4vh;width:4vh;background-color:#1c1c1c" id="appwindowinputfcolor" value="#ffffff" onchange="appwindowfcolor()" title="Window Foreground Color">
+		<input type="color" style="font-family: 'Montserrat', sans-serif;height:4vh;width:4vh;background-color:#1c1c1c" id="appwindowinputbcolor" value="#ffffff" onchange="appwindowbcolor()" title="Window Background Color">
+
+<a id ="gfonts" href="https://fonts.google.com/" target=_blank style="transition:1.5s;color:#ff8400;text-decoration:none;font-size:3vh;font-family: 'Leckerli One', cursive;border:none;padding:5px;border-radius: 1vh;">Google Fonts</a><br>
+
+<br><br>
+</div>
+<style>
+#f1,#f2,#f3,#f4,#sep{
+
+color:purple;
+text-decoration:none;
+align:center;
+font-weight:1000;
+font-size:3vh;
+font-family:'Leckerli One', cursive;
+padding-top:2vh;
+transition:1.5s;
+}
+#sep{
+color:purple;
+text-decoration:none;
+align:center;
+font-weight:1000;
+font-size:3vh;
+font-family:'Leckerli One', cursive;
+padding-top:2vh;
+
+}
+#f1:hover,#f2:hover,#f3:hover,#f4:hover{
+
+color:#ff8400;
+text-decoration:none;
+align:center;
+font-weight:1000;
+font-size:5vh;
+font-family:'Leckerli One', cursive;
+padding-top:2vh;
+text-shadow: 2px 2px 6px #d10054;
+}
+</style>
+<div id="footer" style="width:100%;">
+<center>
+	<a id="f1" href="#liveeditor" style=""> Live-Editor </a>
+	<a id="sep" href="javascript:void(0)"> &#124;</a>
+	<a id="f2" href="#colorpal"> Color Pallete Generator </a>
+	<a id="sep" href="javascript:void(0)"> &#124;</a>
+	<a id="f3" href="#gradientgenerator"> Gradient-Generator </a>
+	<a id="sep" href="javascript:void(0)"> &#124;</a>
+	<a id="f4" href="#navbar"> Top ⇑ </a>
+	</center>
+</div>
+</body>
+</html>
